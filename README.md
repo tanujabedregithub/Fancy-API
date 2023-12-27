@@ -1,2 +1,20 @@
-# Fancy-API
-It defines a single API endpoint, /api/fancy, which returns a JSON response when accessed. The server also includes middleware to enable Cross-Origin Resource Sharing (CORS), which allows the API to be accessed from any domain.
+// Include necessary modules
+const express = require('express');
+const cors = require('cors');
+
+// Initialize express app
+const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
+
+// Define a route that returns a JSON response
+app.get('/api/fancy', (req, res) => {
+ res.json({ message: 'You are viewing a fancy API!' });
+});
+
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+ console.log(`Server is running on port ${port}`);
+});
